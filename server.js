@@ -13,6 +13,16 @@ app.use(express.static("public"));
 let socket = require("socket.io");
 // create a socket connection
 let io = socket(server);
+
+//firebase
+let firebase = require("firebase");
+var firebaseConfig = {
+  // ...
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+console.log("firebase is ok");
 // define which function should be called
 // when a new connection is opened from client
 io.on("connection", newConnection);
