@@ -12,6 +12,39 @@ let isDrawing = false;
 
 let currentPath;
 
+
+let sketch = function(backgroundCanvas) {
+  backgroundCanvas.setup = function() {
+    backgroundCanvas.createCanvas(windowWidth, windowHeight);
+    backgroundCanvas.background("#fffbe8");
+    //backgroundCanvas.parent("canvascontainer");
+    //backgroundCanvas.position(0, 0);
+
+    // backgroundCanvas.noStroke();
+    // backgroundCanvas.text("HOME",tx,ty);
+    //
+    // if (backgroundCanvas.overHome(tx, ty) && mouseIsPressed) {
+    // window.open("index.html", "_self")
+    // }
+  };
+
+  // backgroundCanvas.draw = function() {
+
+  // };
+
+  // backgroundCanvas.overHome = function(x, y) {
+  //   if (mouseX > x && mouseX < + x+50 && mouseY > y/1.5 && mouseY < y) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
+}
+
+let backgroundCanvas = new p5(sketch);
+
+
 function preload(){
   // put preload code here
 }
@@ -19,6 +52,9 @@ function preload(){
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
 canvas = createCanvas(500, 500);
+canvas.background("white");
+// canvas.stroke("black");
+// canvas.strokeWeight(1);
 canvas.mousePressed(startPath);
 canvas.parent("canvascontainer");
 canvas.mouseReleased(endPath);
@@ -43,6 +79,14 @@ function endPath() {
   isDrawing = false;
 }
 
+function overHome(x, y) {
+	if (mouseX > x && mouseX < + x+50 && mouseY > y/1.5 && mouseY < y) {
+	  return true;
+	} else {
+	  return false;
+	}
+}
+
 function draw() {
 // background("#fffbe8");
 
@@ -50,6 +94,11 @@ push()
 noStroke();
 let home = text("HOME",tx,ty);
 pop()
+
+if (overHome(tx, ty) && mouseIsPressed) {
+window.open("index.html", "_self")
+}
+
 
 if (isDrawing) {
   let point = {
@@ -133,6 +182,7 @@ function saveDrawing() {
     drawing: drawing
   }
   ref.push(data);
+  saveCanvas(canvas, "myCanvas", "jpg");
 }
 
 function errData(err) {
@@ -147,7 +197,7 @@ let keys = Object.keys(drawings);
 console.log(keys);
 for (var i = 0; i < keys.lenght; i++) {
   let k = keys[i];
-  
+
 }
 }
 
