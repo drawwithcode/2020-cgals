@@ -14,9 +14,10 @@ let inputText = "Enter your word here";
 let addWordButton;
 let buttonText = "ADD TO THE CHAIN";
 
+let timer = 5;
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
-background("#fffbe8");
 
 let home = text("HOME",tx,ty);
 
@@ -37,6 +38,20 @@ addWordButton.style("font-size", 17 + "pt").style("padding-left", 20 + "pt").sty
 }
 
 function draw() {
+  background("#fffbe8");
+
+push()
+textAlign(CENTER);
+textSize(20);
+text(timer, windowWidth / 2, windowHeight / 2 - 200);
+
+if (frameCount % 60 == 0 && timer > 0) {
+  timer --;
+} else if (timer == 0) {
+  window.open("timeover.html", "_self")
+}
+pop()
+
 strokeWeight(0.5);
 rectMode(CENTER);
 

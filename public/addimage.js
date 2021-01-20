@@ -12,6 +12,8 @@ let database;
 let picture;
 let image64;
 
+let timer = 10;
+
 function preload() {
   // put preload code here
 }
@@ -57,6 +59,19 @@ function setup() {
 
 function draw() {
   background("#fffbe8");
+
+push()
+textAlign(CENTER);
+textSize(20);
+text(timer, windowWidth / 2, windowHeight / 2 - 200);
+
+if (frameCount % 60 == 0 && timer > 0) {
+  timer --;
+} else if (timer == 0) {
+  window.open("timeover.html", "_self")
+}
+pop()
+
 
 //display image
   if (img) {
