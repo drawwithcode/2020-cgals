@@ -12,7 +12,7 @@ let database;
 let picture;
 let image64;
 
-let timer = 10;
+let timer = 60;
 
 function preload() {
   // put preload code here
@@ -28,7 +28,7 @@ function setup() {
 
   //firebase
   database = firebase.database();
-  let ref = database.ref("pictures");
+  let ref = database.ref("words");
   ref.on("value", gotData, errData);
 
   //add button
@@ -153,12 +153,12 @@ function gotData(data) {
 
 function saveImage() {
   const image64 = canvas.toDataURL();
-  // console.log(image64);
+  console.log(image64);
   let data = {
     picture: image64
   }
   // console.log(data);
-  let ref = database.ref("images/");
+  let ref = database.ref("words/");
 
   // let data = {
   //   word:"dog",
