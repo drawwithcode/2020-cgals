@@ -14,7 +14,7 @@ let inputText = "Enter your word here";
 let addWordButton;
 let buttonText = "ADD TO THE CHAIN";
 
-let timer = 5;
+let timer = 15;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -134,6 +134,37 @@ function overHome(x, y) {
 	  return false;
 	}
 }
+
+// let socket = io();
+// socket.on("connect", newConnection);
+//
+// function newConnection() {
+//   console.log("id: " + socket.id);
+//   text("welcome", 20, 20);
+// }
+
+// var clients = {};
+// socket.on('connection', function(client) {
+//   //Authenticate the client (Using query string parameters, auth tokens, etc...), and return the userID if the user.
+//   var userId = authenticate(client);
+//
+//   if ( !userId ) {
+//     //Bad authentication, disconnect them
+//     client.disconnect();
+//     return;
+//   }
+//
+//   if (clients[userId]) {
+//     //They already have a session, disconnect
+//     clients[userId].disconnect();
+//     //Set updated session here
+//     clients[userId] = client;
+//   }
+//   client.broadcast({count: Object.keys(clients).length})
+//   client.on('disconnect', function(){
+//     delete clients[userId];
+//   })
+// })
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
