@@ -1,5 +1,8 @@
+console.log("node server is running");
 // load express library
 let express = require("express");
+// load socket library
+let socket = require("socket.io");
 // create the app
 let app = express();
 // define the port where client files will be provided
@@ -10,7 +13,7 @@ let server = app.listen(port);
 // in the "public" folder
 app.use(express.static("public"));
 // load socket library
-let socket = require("socket.io");
+    // let socket = require("socket.io");
 // create a socket connection
 let io = socket(server);
 
@@ -30,7 +33,9 @@ io.on("connection", newConnection);
 // will contain all the information on the new connection
 function newConnection(socket) {
   //when a new connection is created, print its id
-  console.log("socket:", socket.id);
+
+  //console.log("socket:", socket.id);
+    console.log("new connection: " + socket.id);
 
   //define what to do on different kind of messages
   socket.on("mouse", mouseMessage);
@@ -43,5 +48,3 @@ function newConnection(socket) {
     console.log(socket.id, data);
   }
 }
-
-console.log("node server is running");

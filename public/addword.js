@@ -135,13 +135,13 @@ function overHome(x, y) {
 	}
 }
 
-// let socket = io();
-// socket.on("connect", newConnection);
-//
-// function newConnection() {
-//   console.log("id: " + socket.id);
-//   text("welcome", 20, 20);
-// }
+let socket = io();
+socket.on("connect", newConnection);
+
+function newConnection() {
+  console.log("id: " + socket.id);
+  text("welcome", 20, 20);
+}
 
 // var clients = {};
 // socket.on('connection', function(client) {
