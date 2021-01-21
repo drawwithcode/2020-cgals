@@ -1,4 +1,3 @@
-
 let rx;
 let ry;
 let rw = 600;
@@ -50,13 +49,14 @@ let k = keys[i];
 let word = words[k].word;
 let picture = words[k].picture;
 console.log(words);
+console.log(image);
 // let mText = text(words, 100, 100);
 // let li = createElement("li", word);
 // li.parent("list");
 
 
 let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").addClass('p');
-let allImages = createElement("img");
+let allImages = createElement("img").style("width", 30 + "px").style("height", 30 + "px");
 image.src = image.picture;
 // const image = document.createElement("img");
 // image.src = item.image64;
