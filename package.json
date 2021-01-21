@@ -13,5 +13,14 @@
     "express": "^4.17.1",
     "firebase": "^8.2.3",
     "socket.io": "^3.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drawwithcode/2020-cgals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/drawwithcode/2020-cgals/issues"
+  },
+  "homepage": "https://github.com/drawwithcode/2020-cgals#readme"
 }
