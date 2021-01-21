@@ -52,6 +52,14 @@ rectMode(CENTER);
       window.open("index.html", "_self")
       }
 
+      push()
+      textFont("Nanum Myeongjo");
+      textSize(29.5);
+      fill("#6B00FF");
+      textAlign(LEFT);
+      let title = text("When you press the following button, you'll \n see the contribution of the last user who \n collaborated to Memorypedia. \n You'll have 1 minutte to think of a way for \n continuing the chain: by adding a word, \n a picture or by drawing. Once you have saved, \n your contribution will be posted on the web \n app and you'll be able to see the full chain, \n from the first piece to the last!", width/3.35, height/4);
+      pop()
+
 }
 
 function overRect(x, y, w, h) {

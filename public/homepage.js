@@ -47,18 +47,18 @@ rectMode(CENTER);
   let title = text("Memorypedia", width/2, height/2.5);
   pop()
 
-push()
-textSize(13);
-fill("#6B00FF");
-textAlign(CENTER);
-let quote =  text("«...the memory of a particular image is but regret for a particular moment».", width/2, height/2)
+  push()
+  textSize(13);
+  fill("#6B00FF");
+  textAlign(CENTER);
+  let quote =  text("«...the memory of a particular image is but regret for a particular moment».", width/2, height/2)
   pop()
 
   push()
   textSize(13);
   fill("#6B00FF");
   textAlign(CENTER);
-  let proust = text("Marcel Proust,", width/2.236, height/1.88);
+  let proust = text("Marcel Proust,", width/2.15, height/1.88);
   pop()
 
   push()
@@ -66,7 +66,7 @@ let quote =  text("«...the memory of a particular image is but regret for a par
   fill("#6B00FF");
   textAlign(CENTER);
   textStyle("italic");
-  let proust2 = text("In Search of Lost Time", width/1.87, height/1.88);
+  let proust2 = text("In Search of Lost Time", width/1.86, height/1.88);
   pop()
 
 

@@ -14,16 +14,16 @@ let inputText = "Enter your word here";
 let addWordButton;
 let buttonText = "ADD TO THE CHAIN";
 
-let timer = 15;
+let timer = 155;
 
-let socket = io();
-
-socket.on("connect", newConnection);
-
-function newConnection() {
-  console.log("id: " + socket.id);
-  //text("welcome", 20, 20);
-}
+// let socket = io();
+//
+// socket.on("connect", newConnection);
+//
+// function newConnection() {
+//   console.log("id: " + socket.id);
+//   //text("welcome", 20, 20);
+// }
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
