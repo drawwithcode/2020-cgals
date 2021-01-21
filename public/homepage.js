@@ -7,6 +7,20 @@ let tx = 30;
 let ty1 = 40;
 let ty2 = 60;
 
+// let socket = io();
+//
+// socket.on("mouseBroadcast", drawOtherMouse);
+// socket.on("connect", newConnection);
+//
+// function newConnection() {
+//   console.log("id: " + socket.id);
+//   //text("welcome", 20, 20);
+// }
+//
+// function drawOtherMouse(data) {
+//   console.log("new" + data);
+// }
+
 function preload(){
   // put preload code here
 
