@@ -35,24 +35,30 @@ let ref = database.ref("words/");
 ref.on("value", gotData, errData);
 
 textbox = createInput(inputText);
-textbox.position(windowWidth / 2 - 300, windowHeight / 2 - 75);
-textbox.size(573, 70);
-textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border", 0 + "px");
+textbox.position(windowWidth / 2 - 300, windowHeight / 2 - 70);
+textbox.size(573, 60);
+textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");
 
-addWordButton = createButton("add");
+addWordButton = createButton("ADD TO THE CHAIN");
 addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 20);
 addWordButton.mouseClicked(saveTheWord);
-addWordButton.style("font-size", 17 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border", 0 + "px");
+addWordButton.style("font-size", 9.5 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 181 + "pt").style("padding-left", 181 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");    //.style("border", 2 + "px")
 
 }
 
 function draw() {
   background("#fffbe8");
+  push()
+  textSize(15);
+  textAlign(CENTER);
+  text("SECONDS LEFT", windowWidth / 2, windowHeight / 3.3);
+  pop()
 
 push()
 textAlign(CENTER);
-textSize(20);
-text(timer, windowWidth / 2, windowHeight / 2 - 200);
+textSize(16);
+fill("#6B00FF");
+text(timer, windowWidth / 2, windowHeight / 3.7);
 
 if (frameCount % 60 == 0 && timer > 0) {
   timer --;

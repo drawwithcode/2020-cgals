@@ -33,10 +33,10 @@ function setup() {
 
   //add button
   let addImageButton;
-  addImageButton = createButton("add");
-  addImageButton.position(windowWidth / 2, windowHeight / 2);
+  addImageButton = createButton("ADD TO THE CHAIN");
+  addImageButton.position(windowWidth / 2 - 300, windowHeight / 2 + 150);
   addImageButton.mouseClicked(saveImage);
-  // addWordButton.style("font-size", 17 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border", 0 + "px");
+  addImageButton.style("font-size", 9.5 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 181 + "pt").style("padding-left", 181 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");
 
 }
 
@@ -59,11 +59,17 @@ function setup() {
 
 function draw() {
   background("#fffbe8");
+  push()
+  textSize(15);
+  textAlign(CENTER);
+  text("SECONDS LEFT", windowWidth / 2, windowHeight / 4);
+  pop()
 
 push()
 textAlign(CENTER);
-textSize(20);
-text(timer, windowWidth / 2, windowHeight / 2 - 200);
+textSize(16);
+fill("#6B00FF");
+text(timer, windowWidth / 2, windowHeight / 4.4);
 
 if (frameCount % 60 == 0 && timer > 0) {
   timer --;
