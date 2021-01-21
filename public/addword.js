@@ -16,6 +16,15 @@ let buttonText = "ADD TO THE CHAIN";
 
 let timer = 15;
 
+let socket = io();
+
+socket.on("connect", newConnection);
+
+function newConnection() {
+  console.log("id: " + socket.id);
+  //text("welcome", 20, 20);
+}
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
@@ -133,14 +142,6 @@ function overHome(x, y) {
 	} else {
 	  return false;
 	}
-}
-
-let socket = io();
-socket.on("connect", newConnection);
-
-function newConnection() {
-  console.log("id: " + socket.id);
-  text("welcome", 20, 20);
 }
 
 // var clients = {};

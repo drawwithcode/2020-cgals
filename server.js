@@ -1,4 +1,3 @@
-console.log("node server is running");
 // load express library
 let express = require("express");
 // load socket library
@@ -22,7 +21,7 @@ let firebase = require("firebase");
 var firebaseConfig = {
   // ...
 };
-
+      
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 console.log("firebase is ok");
@@ -34,8 +33,8 @@ io.on("connection", newConnection);
 function newConnection(socket) {
   //when a new connection is created, print its id
 
-  //console.log("socket:", socket.id);
-    console.log("new connection: " + socket.id);
+    console.log("socket:", socket.id);
+    //console.log("new connection: ", socket.client.id);
 
   //define what to do on different kind of messages
   socket.on("mouse", mouseMessage);
@@ -48,3 +47,5 @@ function newConnection(socket) {
     console.log(socket.id, data);
   }
 }
+
+console.log("node server is running");
