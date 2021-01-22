@@ -18,17 +18,15 @@ function preload(){
   // put preload code here
 }
 
-let sketch = function(backgroundCanvas) {
-  backgroundCanvas.setup = function() {
-    backgroundCanvas.createCanvas(windowWidth, windowHeight);
-    backgroundCanvas.background("#fffbe8");
-  };
-
-  backgroundCanvas.draw = function() {
-  };
-}
-
-let backgroundCanvas = new p5(sketch);
+// let sketch = function(backgroundCanvas) {
+//   backgroundCanvas.setup = function() {
+//   };
+//
+//   backgroundCanvas.draw = function() {
+//   };
+// }
+//
+// let backgroundCanvas = new p5(sketch);
 
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
@@ -69,29 +67,7 @@ function endPath() {
 }
 
 function draw() {
-  // push()
-  //   let home = createButton("HOME", tx,ty);
-  //   //home.mousePressed(window.open("index.html", "_self"));
-  //   home.position(tx,ty);
-  //   home.style("font-size", 9 + "pt").style("boxShadow", "none").style("border-width", 0 + "pt").style("border-color", "black").style("outline", "none");    //.style("border", 2 + "px")
-  //
-  //   if (overHome(tx, ty) && mouseIsPressed) {
-  //   window.open("index.html", "_self")
-  //   }
-  // pop()
-  //
-  // push()
-  // // rect(windowWidth/2, windowHeight/2, 500, 500);
-  // // //position(ABSOLUTE);
-  // // noFill();
-  // // strokeWeight(0.5);
-  // pop()
-// background("#fffbe8");
 
-// push()
-// noStroke();
-// let home = text("HOME",tx,ty);
-// pop()
 
 if (isDrawing) {
   let point = {
@@ -174,7 +150,12 @@ function saveDrawing() {
   var data = {
     drawing: drawing
   }
-  ref.push(data);
+        var result = ref.push(data, dataSent);
+        console.log(result.key);
+
+        function dataSent(status) {
+          console.log(status);
+        }
 }
 
 function errData(err) {
@@ -189,7 +170,6 @@ let keys = Object.keys(drawings);
 console.log(keys);
 for (var i = 0; i < keys.lenght; i++) {
   let k = keys[i];
-
 }
 }
 

@@ -41,25 +41,33 @@ pop()
 function gotData(data) {
 // console.log(data.val());
 let words = data.val();
-let keys = Object.keys(words);
+let drawings = data.val();
+    //let image = data.val();
+let keys = Object.keys(words, drawings);
+//let keys = Object.keys(drawings);
+    //let keys = Object.keys(image);
 // console.log(keys);
 for (var i = 0; i < keys.length; i++) {
 let k = keys[i];
 
 let word = words[k].word;
-let picture = words[k].picture;
-console.log(words);
-console.log(image);
+let drawing = drawings[k].picture;
+    //let picture = image[k].picture;
+console.log(words); 
+console.log(keys);
+//console.log(image);
+
 // let mText = text(words, 100, 100);
 // let li = createElement("li", word);
 // li.parent("list");
 
-
+let allDrawings = createElement("drw", drawing).style("width", 40 + "px").style("height", 40 + "px");
+//allDrawings.show(showDrawing);
 let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").addClass('p');
-let allImages = createElement("img").style("width", 30 + "px").style("height", 30 + "px");
-image.src = image.picture;
+let allImages = createElement("img", image).style("width", 30 + "px").style("height", 30 + "px");
+//image.src = image.picture;
 // const image = document.createElement("img");
-// image.src = item.image64;
+    //image.src = item.image64;
 // let imagez = image(picture, 100, 100, 100, 100);
 
 }
@@ -86,6 +94,16 @@ window.open("index.html", "_self")
 
 }
 
+// function showDrawing() {
+//   console.log(this.html());
+//   var ref = database.ref("drawing/" + key);
+//   // ref.on("value", onDrawing, errData)
+//   //
+//   // function oneDrawing(data) {
+//   //   var ndrawing = data.val();
+//   //   drawing = ndrawing.drawing;
+//   // }
+// }
 
 
 function overHome(x, y) {
