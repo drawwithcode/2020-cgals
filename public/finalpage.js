@@ -9,14 +9,20 @@ let ty = 40;
 let database;
 let textbox;
 
+let word;
+let picture;
+let words;
+let keys;
+let k;
+
 
 function setup() {
 createCanvas(windowWidth,90);
 background("#fffbe8");
 
 database = firebase.database();
-let ref = database.ref("words/");
-ref.on("value", gotData, errData);
+let ref = database.ref("words");
+ref.once("value", gotData, errData);
 
 let rx = width/2;
 let ry = height/1.8;
@@ -48,12 +54,15 @@ let keys = Object.keys(words, drawings);
     //let keys = Object.keys(image);
 // console.log(keys);
 for (var i = 0; i < keys.length; i++) {
-let k = keys[i];
+k = keys[i];
+
+word = words[k].word;
+picture = words[k].picture;
 
 let word = words[k].word;
 let drawing = drawings[k].picture;
     //let picture = image[k].picture;
-console.log(words); 
+console.log(words);
 console.log(keys);
 //console.log(image);
 
@@ -71,6 +80,7 @@ let allImages = createElement("img", image).style("width", 30 + "px").style("hei
 // let imagez = image(picture, 100, 100, 100, 100);
 
 }
+console.log(picture, word, words);
 }
 
 function errData(err) {

@@ -5,14 +5,90 @@ let rh = 45;
 
 let tx = 30;
 let ty = 40;
+let array;
+let lastItem;
+let word;
+let picture;
+let loading = 0;
+let lastContributionType;
+let words;
+let keys;
+let k;
 
 function preload(){
 }
 
 function setup() {
 createCanvas(windowWidth, windowHeight);
+database = firebase.database();
+let ref = database.ref("words");
+ref.once("value", gotData, errData);
+}
+
+function gotData(data) {
+// console.log(data.val());
+words = data.val();
+keys = Object.keys(words);
+// console.log(keys);
+for (var i = 0; i < keys.length; i++) {
+k = keys[i];
+word = words[k].word;
+picture = words[k].picture;
+array = [];
+
+//creates an array
+Object.keys(words).forEach((key) => {
+  array.push({[key]: words[key]});
+});
 
 }
+
+//gets last item
+lastItem = array.slice(array.length - 1);
+console.log(lastItem);
+
+//finds out if the element is a word or a picture
+// console.log(lastItem.find(findWord));
+lastContributionType = lastItem.find(findWord);
+
+console.log(lastContributionType);
+
+
+//shows last word contribution
+if (lastContributionType) {
+   console.log("it's a word!");
+showWord();
+}
+else {
+  console.log("its not!")
+}
+}
+
+function findWord () {
+  return word;
+}
+
+function showWord() {
+let textCon = lastContributionType[k].word;
+console.log(textCon);
+// push()
+// textSize(60);
+// let lastWord = text(textCon, width/2, height/4);
+// pop()
+
+let allWords = createP(textCon).addClass('p');
+
+ }
+
+ // function showPicture() {
+ //   p = loadImage(picture);
+ // }
+
+function errData(err) {
+  console.log("Error");
+  console.log(err);
+}
+
 
 function draw(){
   background("#FFFBE8")
@@ -21,6 +97,7 @@ function draw(){
   let rx = width/2;
   let ry = height/2;
 rectMode(CENTER);
+
 
 //white box
 

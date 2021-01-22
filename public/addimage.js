@@ -28,7 +28,7 @@ function setup() {
 
   //firebase
   database = firebase.database();
-  let ref = database.ref("words");
+  let ref = database.ref("words/");
   ref.on("value", gotData, errData);
 
   //add button
