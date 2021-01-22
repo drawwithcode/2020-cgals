@@ -12,24 +12,49 @@ let isDrawing = false;
 
 let currentPath;
 
+let timer = 120;
+
 function preload(){
   // put preload code here
 }
 
+let sketch = function(backgroundCanvas) {
+  backgroundCanvas.setup = function() {
+    backgroundCanvas.createCanvas(windowWidth, windowHeight);
+    backgroundCanvas.background("#fffbe8");
+  };
+
+  backgroundCanvas.draw = function() {
+  };
+}
+
+let backgroundCanvas = new p5(sketch);
+
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
+push()
 canvas = createCanvas(500, 500);
 canvas.mousePressed(startPath);
-canvas.parent("canvascontainer");
+//canvas.parent("canvascontainer");
 canvas.mouseReleased(endPath);
+canvas.position(windowWidth/2 - 250, windowHeight/2 - 250);
+canvas.background("white");
+//canvas.rect(windowWidth/2, windowHeight/2, 500, 500);
+//position(ABSOLUTE);
+//canvas.noFill();
+//canvas.strokeWeight(0.5);
+pop()
 
 database = firebase.database();
 
 let ref = database.ref("drawings");
 ref.on("value", gotData, errData);
 
-let saveButton = select("#saveButton");
-saveButton.mousePressed(saveDrawing);
+  let saveButton = select("#saveButton");
+  saveButton.mousePressed(saveDrawing);
+  saveButton.position(windowWidth / 2 - 300, windowHeight / 2 + 300);
+  //saveButton.mouseClicked(saveTheWord);
+  saveButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
 
 }
 
@@ -44,12 +69,29 @@ function endPath() {
 }
 
 function draw() {
+  // push()
+  //   let home = createButton("HOME", tx,ty);
+  //   //home.mousePressed(window.open("index.html", "_self"));
+  //   home.position(tx,ty);
+  //   home.style("font-size", 9 + "pt").style("boxShadow", "none").style("border-width", 0 + "pt").style("border-color", "black").style("outline", "none");    //.style("border", 2 + "px")
+  //
+  //   if (overHome(tx, ty) && mouseIsPressed) {
+  //   window.open("index.html", "_self")
+  //   }
+  // pop()
+  //
+  // push()
+  // // rect(windowWidth/2, windowHeight/2, 500, 500);
+  // // //position(ABSOLUTE);
+  // // noFill();
+  // // strokeWeight(0.5);
+  // pop()
 // background("#fffbe8");
 
-push()
-noStroke();
-let home = text("HOME",tx,ty);
-pop()
+// push()
+// noStroke();
+// let home = text("HOME",tx,ty);
+// pop()
 
 if (isDrawing) {
   let point = {
@@ -152,21 +194,21 @@ for (var i = 0; i < keys.lenght; i++) {
 }
 
 
-function overRect(x, y, w, h) {
-	if (mouseX > x - w/2 && mouseX < x+w/2 && mouseY > y - h/2 && mouseY < y+h/2) {
-	  return true;
-	} else {
-	  return false;
-	}
-}
+// function overRect(x, y, w, h) {
+// 	if (mouseX > x - w/2 && mouseX < x+w/2 && mouseY > y - h/2 && mouseY < y+h/2) {
+// 	  return true;
+// 	} else {
+// 	  return false;
+// 	}
+// }
 
-function overHome(x, y) {
-	if (mouseX > x && mouseX < + x+50 && mouseY > y/1.5 && mouseY < y) {
-	  return true;
-	} else {
-	  return false;
-	}
-}
+// function overHome(x, y) {
+// 	if (mouseX > x && mouseX < + x+50 && mouseY > y/1.5 && mouseY < y) {
+// 	  return true;
+// 	} else {
+// 	  return false;
+// 	}
+// }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

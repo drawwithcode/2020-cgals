@@ -37,12 +37,12 @@ ref.on("value", gotData, errData);
 textbox = createInput(inputText);
 textbox.position(windowWidth / 2 - 300, windowHeight / 2 - 70);
 textbox.size(573, 60);
-textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");
+textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
 
 addWordButton = createButton("ADD TO THE CHAIN");
 addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 20);
 addWordButton.mouseClicked(saveTheWord);
-addWordButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");    //.style("border", 2 + "px")
+addWordButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
 }
 
 function draw() {
@@ -66,9 +66,9 @@ if (frameCount % 60 == 0 && timer > 0) {
 }
 pop()
 
-if (addWordButton && mouseIsPressed) {
-  window.open("finalpage.html", "_self")
-}
+// if (addWordButton && mouseIsPressed) {
+//   window.open("finalpage.html", "_self")
+// }
 
 strokeWeight(0.5);
 rectMode(CENTER);
