@@ -34,7 +34,7 @@ function setup() {
 
   //firebase
   database = firebase.database();
-  let ref = database.ref("pictures");
+  let ref = database.ref("words");
   ref.on("value", gotData, errData);
 
   //add button
@@ -179,7 +179,7 @@ function saveImage() {
     picture: image64
   }
   // console.log(data);
-  let ref = database.ref("pictures");
+  let ref = database.ref("words");
 
   // let data = {
   //   word:"dog",
