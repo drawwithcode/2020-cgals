@@ -11,6 +11,7 @@ let img;
 let database;
 let picture;
 let image64;
+let myImage;
 
 let timer = 120;
 
@@ -19,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+canvas =  createCanvas(windowWidth, windowHeight);
 
   //file input
   push()
@@ -102,7 +103,7 @@ let box = rect(width/2, height/2, 600, 300);
 pop()
 //display image
   if (img) {
-    image(img, windowWidth/2, windowHeight/2, (img.width * 250)/img.height, 250);
+    myImage = image(img, windowWidth/2, windowHeight/2, (img.width * 250)/img.height, 250);
     imageMode(CENTER)
   }
 
@@ -163,6 +164,7 @@ function handleFile(file) {
   print(file);
   if (file.type === 'image') {
     img = createImg(file.data, '');
+    image64 = file.data;
     loadPixels();
     img.hide();
   } else {
@@ -180,7 +182,6 @@ function gotData(data) {
     // console.log(data.val());
     let pictures = data.val();
     let keys = Object.keys(pictures);
-    console.log(keys);
     for (var i = 0; i < keys.lenght; i++) {
       let k = keys[i];
       let picture = pictures[k].picture;
@@ -190,8 +191,7 @@ function gotData(data) {
 }
 
 function saveImage() {
-  const image64 = canvas.toDataURL();
-  console.log(image64);
+  // console.log(image64);
   let data = {
     picture: image64
   }
