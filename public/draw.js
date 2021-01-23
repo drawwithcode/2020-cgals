@@ -31,7 +31,7 @@ function preload(){
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
 push()
-canvas = createCanvas(500, 500);
+let canvas = createCanvas(500, 500);
 canvas.mousePressed(startPath);
 //canvas.parent("canvascontainer");
 canvas.mouseReleased(endPath);
@@ -45,7 +45,7 @@ pop()
 
 database = firebase.database();
 
-let ref = database.ref("drawings");
+let ref = database.ref("words");
 ref.on("value", gotData, errData);
 
   let saveButton = select("#saveButton");
@@ -146,9 +146,12 @@ endShape();
 }
 
 function saveDrawing() {
-  var ref = database.ref("drawings");
+  var ref = database.ref("words");
+    loadPixels();
+  const image64 = canvas.toDataURL();
+  console.log(image64);
   var data = {
-    drawing: drawing
+    picture: image64
   }
         var result = ref.push(data, dataSent);
         console.log(result.key);
