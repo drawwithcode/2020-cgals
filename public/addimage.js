@@ -23,7 +23,9 @@ function setup() {
 
   //file input
   input = createFileInput(handleFile);
-  input.position(0, 0);
+  input.center();
+  input.style("background-color", "#fffbe8");
+  //input.resize(400, 300);
 
 
   //firebase
@@ -81,7 +83,7 @@ pop()
 
 //display image
   if (img) {
-    image(img, 0, 0, width, height);
+    image(img, windowWidth/4, windowHeight/4, img.width/3, img.height/3);
   }
   // strokeWeight(0.5);
   // rectMode(CENTER);

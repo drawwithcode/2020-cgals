@@ -76,7 +76,10 @@ console.log(textCon);
 // let lastWord = text(textCon, width/2, height/4);
 // pop()
 
-let allWords = createP(textCon).addClass('p');
+push()
+let allWords = createDiv(textCon).addClass('p').style("margin", 0 + "pt").style("font-size", 20 + "pt").style("text-align", "center").style("text-align", "center").style("font-family", "arial");
+allWords.center();
+pop()
 
  }
 
@@ -103,7 +106,7 @@ rectMode(CENTER);
 
 fill("white");
 stroke("black");
-let box = rect(width/2, height/2.1, 600, 250);
+let box = rect(width/2, height/2, 600, 250);
 
 
 textAlign(CENTER);
@@ -155,7 +158,7 @@ pop()
       let word = text("A WORD",rx - 203,ry+205)
       let picture = text("A PICTURE",width/2,ry+205)
       let drawing = text("A DRAWING",rx + 202.5,ry+205)
-      let home = text("HOME",tx,ty);
+      let home = text("HOME",tx+30,ty);
 
 //open pages
 
