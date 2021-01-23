@@ -25,7 +25,7 @@ function setup() {
   push()
   input = createFileInput(handleFile);
   //input.center();
-  input.position(windowWidth/2 - 300, windowHeight/2 + 95);
+  input.position(windowWidth/2 - 300, windowHeight/2 + 190);
   input.addClass("uploadstyle");
   input.style("border-width", 0.5 + "pt").style("border-color", "black");
   //input.style("background-color", "#fffbe8");
@@ -40,7 +40,7 @@ function setup() {
   //add button
   let addImageButton;
   addImageButton = createButton("ADD TO THE CHAIN");
-  addImageButton.position(windowWidth / 2 - 300, windowHeight / 2 + 150);
+  addImageButton.position(windowWidth / 2 - 300, windowHeight / 2 + 250);
   addImageButton.mouseClicked(saveImage);
   addImageButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");
 
@@ -72,7 +72,7 @@ function draw() {
   pop()
 
   push()
-  rect(windowWidth/2 - 300, windowHeight/2 + 95, 600, 45);
+  rect(windowWidth/2 - 300, windowHeight/2 + 190, 600, 45);
   strokeWeight(1);
   stroke("black");
   noFill();
@@ -92,12 +92,30 @@ if (frameCount % 60 == 0 && timer > 0) {
 }
 pop()
 
-
+push()
+strokeWeight(0.5);
+let rx = width/2;
+let ry = height/2;
+rectMode(CENTER);
+fill("white");
+stroke("black");
+let box = rect(width/2, height/2, 600, 300);
+pop()
 //display image
   if (img) {
-    image(img, windowWidth/2, windowHeight/2, 300, 120);
+    image(img, windowWidth/2, windowHeight/2, (img.width * 250)/img.height, 250);
     imageMode(CENTER)
   }
+
+  // if (img) {
+  //   loadImage(img, () => {
+  //       size(AUTO, 60);
+  //     });
+  // }
+
+  // let allImages = createImg(drawing, () => {
+  //     allImages.size(AUTO, 60);
+  //   }
   // strokeWeight(0.5);
   // rectMode(CENTER);
   //
