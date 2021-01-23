@@ -1,7 +1,5 @@
 // load express library
 let express = require("express");
-// load socket library
-let socket = require("socket.io");
 // create the app
 let app = express();
 // define the port where client files will be provided
@@ -12,7 +10,7 @@ let server = app.listen(port);
 // in the "public" folder
 app.use(express.static("public"));
 // load socket library
-    // let socket = require("socket.io");
+let socket = require("socket.io");
 // create a socket connection
 let io = socket(server);
 
@@ -21,10 +19,9 @@ let firebase = require("firebase");
 var firebaseConfig = {
   // ...
 };
-      
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-console.log("firebase is ok");
+
 // define which function should be called
 // when a new connection is opened from client
 io.on("connection", newConnection);
@@ -37,8 +34,12 @@ function newConnection(socket) {
     //console.log("new connection: ", socket.client.id);
 
   //define what to do on different kind of messages
-  socket.on("mouse", mouseMessage);
+  socket.on("name", newUser);
 
+  function newUser(data){
+   socket.broadcast.emit("welcomeNewUser", data);
+ }
+socket.on("mouse", mouseMessage)
   // create the mouseMessage function
   function mouseMessage(data) {
     // send the data to all the other clients

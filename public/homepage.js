@@ -7,19 +7,25 @@ let tx = 30;
 let ty1 = 40;
 let ty2 = 60;
 
-// let socket = io();
+let socket = io();
 //
-// socket.on("mouseBroadcast", drawOtherMouse);
-// socket.on("connect", newConnection);
-//
-// function newConnection() {
-//   console.log("id: " + socket.id);
-//   //text("welcome", 20, 20);
-// }
-//
-// function drawOtherMouse(data) {
-//   console.log("new" + data);
-// }
+socket.on("connect", newConnection);
+socket.on("welcomeNewUser", showWelcome);
+
+
+function newConnection() {
+  console.log("your id:", socket.id);
+}
+
+function showWelcome(data){
+  console.log("new connection from", data)
+  push()
+    fill(data.color)
+    textAlign(CENTER)
+    translate(data.coordinates[0]*width,data.coordinates[1]*height)
+    text("Hello "+data.name, 0,0)
+  pop()
+}
 
 function preload(){
   // put preload code here
