@@ -42,8 +42,7 @@ function setup() {
   addImageButton = createButton("ADD TO THE CHAIN");
   addImageButton.position(windowWidth / 2 - 300, windowHeight / 2 + 250);
   addImageButton.mouseClicked(saveImage);
-  addImageButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px");
-
+  addImageButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
 }
 
 //drag and drop
@@ -203,6 +202,8 @@ function saveImage() {
   //   word:"dog",
   // }
   ref.push(data);
+
+  window.open("finalpage.html", "_self")
 }
 
 function overRect(x, y, w, h) {
