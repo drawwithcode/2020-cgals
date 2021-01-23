@@ -28,7 +28,7 @@ function setup() {
 
   //firebase
   database = firebase.database();
-  let ref = database.ref("words/");
+  let ref = database.ref("pictures");
   ref.on("value", gotData, errData);
 
   //add button
@@ -65,18 +65,18 @@ function draw() {
   text("SECONDS LEFT", windowWidth / 2, windowHeight / 4);
   pop()
 
-push()
-textAlign(CENTER);
-textSize(16);
-fill("#6B00FF");
-text(timer, windowWidth / 2, windowHeight / 4.4);
-
-if (frameCount % 60 == 0 && timer > 0) {
-  timer --;
-} else if (timer == 0) {
-  window.open("timeover.html", "_self")
-}
-pop()
+// push()
+// textAlign(CENTER);
+// textSize(16);
+// fill("#6B00FF");
+// text(timer, windowWidth / 2, windowHeight / 4.4);
+//
+// if (frameCount % 60 == 0 && timer > 0) {
+//   timer --;
+// } else if (timer == 0) {
+//   window.open("timeover.html", "_self")
+// }
+// pop()
 
 
 //display image
@@ -164,7 +164,7 @@ function saveImage() {
     picture: image64
   }
   // console.log(data);
-  let ref = database.ref("words/");
+  let ref = database.ref("pictures");
 
   // let data = {
   //   word:"dog",

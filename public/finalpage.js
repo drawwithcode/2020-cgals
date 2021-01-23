@@ -9,11 +9,11 @@ let ty = 40;
 let database;
 let textbox;
 
-let word;
-let picture;
-let words;
-let keys;
-let k;
+// let word;
+// let picture;
+// let words;
+// let keys;
+// let k;
 
 
 function setup() {
@@ -21,6 +21,7 @@ createCanvas(windowWidth,90);
 background("#fffbe8");
 
 database = firebase.database();
+// let ref = database.ref("pictures");
 let ref = database.ref("words");
 ref.once("value", gotData, errData);
 
@@ -46,42 +47,70 @@ pop()
 
 function gotData(data) {
 // console.log(data.val());
+// let pictures = data.val();
 let words = data.val();
-let drawings = data.val();
-    //let image = data.val();
-let keys = Object.keys(words, drawings);
-//let keys = Object.keys(drawings);
-    //let keys = Object.keys(image);
+
+// let keys = Object.keys(pictures);
+let keys = Object.keys(words);
+
 // console.log(keys);
 for (var i = 0; i < keys.length; i++) {
-k = keys[i];
+let k = keys[i];
 
-word = words[k].word;
-picture = words[k].picture;
-
+let drawing = words[k].picture;
 let word = words[k].word;
-let drawing = drawings[k].picture;
-    //let picture = image[k].picture;
-console.log(words);
-console.log(keys);
-//console.log(image);
-
+console.log(word);
+// if (typeof words.word) {
+let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").style("font-family", "Helvetica").addClass('p');
+// }
 // let mText = text(words, 100, 100);
 // let li = createElement("li", word);
 // li.parent("list");
 
-let allDrawings = createElement("drw", drawing).style("width", 40 + "px").style("height", 40 + "px");
+// let allDrawings = createElement("drw", drawing).style("width", 40 + "px").style("height", 40 + "px");
 //allDrawings.show(showDrawing);
-let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").addClass('p');
-let allImages = createElement("img", image).style("width", 30 + "px").style("height", 30 + "px");
-//image.src = image.picture;
-// const image = document.createElement("img");
-    //image.src = item.image64;
+
+// let allImages = createElement("img", drawing).style("width", 30 + "px").style("height", 30 + "px");
+// allImages.src = drawing;
+// else if (typeof words.picture) {
+
+let allImages = createImg(drawing, () => {
+    allImages.size(AUTO, 60);
+  }
+);
+// }
+
 // let imagez = image(picture, 100, 100, 100, 100);
+// if (Object.values(words).indexOf('test1') > -1) {
+//    console.log('has test1');
+// }
+  // console.log(drawing);
+  // console.log(image)
 
 }
-console.log(picture, word, words);
 }
+// for (var i = 0; i < keys2.length; i++) {
+// let k2 = keys2[i];
+//
+// let word = words[k2].word;
+// console.log(word);
+// let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").addClass('p');
+// }
+// }
+
+// if (check) {
+//     console.log(drawing);
+// }
+// }
+//
+// function check() {
+// if (typeof word !== 'undefined') {
+//   return false;
+// }
+// else {
+//   return true;
+// }
+// }
 
 function errData(err) {
   console.log("Error");
