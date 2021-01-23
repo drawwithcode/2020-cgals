@@ -6,7 +6,35 @@
     <style>
       body {padding: 0; margin: 0;}
       button {background: #fffbe8;}
-      file-upload-button {background: #fffbe8;}
+      .uploadstyle {
+          width: 600px;
+          height: 45px;
+          border-radius: 0px;
+          outline: 0;
+          margin-left: 0;
+          margin-right: 0;
+      }
+      .uploadstyle:hover:after {
+          background: #fff;
+      }
+      .uploadstyle:after {
+          transition: 200ms all ease;
+          background: #fff;
+          color: "black";
+          font-size: 12px;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: block;
+          content: 'UPLOAD FILE';
+          line-height: 45px;
+          border-radius: 0px;
+          margin-left: 0;
+          margin-right: 0;
+      }
       /* #dropzone {
         padding: 24px;
         border-style: dashed;

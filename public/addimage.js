@@ -6,13 +6,13 @@ let rh = 45;
 let tx = 30;
 let ty = 40;
 
-let input;
+//let input;
 let img;
 let database;
 let picture;
 let image64;
 
-let timer = 60;
+let timer = 120;
 
 function preload() {
   // put preload code here
@@ -22,11 +22,15 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   //file input
+  push()
   input = createFileInput(handleFile);
-  input.center();
-  input.style("background-color", "#fffbe8");
+  //input.center();
+  input.position(windowWidth/2 - 300, windowHeight/2 + 95);
+  input.addClass("uploadstyle");
+  input.style("border-width", 0.5 + "pt").style("border-color", "black");
+  //input.style("background-color", "#fffbe8");
   //input.resize(400, 300);
-
+  pop()
 
   //firebase
   database = firebase.database();
@@ -67,23 +71,32 @@ function draw() {
   text("SECONDS LEFT", windowWidth / 2, windowHeight / 4);
   pop()
 
-// push()
-// textAlign(CENTER);
-// textSize(16);
-// fill("#6B00FF");
-// text(timer, windowWidth / 2, windowHeight / 4.4);
-//
-// if (frameCount % 60 == 0 && timer > 0) {
-//   timer --;
-// } else if (timer == 0) {
-//   window.open("timeover.html", "_self")
-// }
-// pop()
+  push()
+  rect(windowWidth/2 - 300, windowHeight/2 + 95, 600, 45);
+  strokeWeight(1);
+  stroke("black");
+  noFill();
+  pop()
+
+
+push()
+textAlign(CENTER);
+textSize(16);
+fill("#6B00FF");
+text(timer, windowWidth / 2, windowHeight / 4.4);
+
+if (frameCount % 60 == 0 && timer > 0) {
+  timer --;
+} else if (timer == 0) {
+  window.open("timeover.html", "_self")
+}
+pop()
 
 
 //display image
   if (img) {
-    image(img, windowWidth/4, windowHeight/4, img.width/3, img.height/3);
+    image(img, windowWidth/2, windowHeight/2, 300, 120);
+    imageMode(CENTER)
   }
   // strokeWeight(0.5);
   // rectMode(CENTER);
