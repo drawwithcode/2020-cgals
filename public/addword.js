@@ -43,6 +43,7 @@ addWordButton = createButton("ADD TO THE CHAIN");
 addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 20);
 addWordButton.mouseClicked(saveTheWord);
 addWordButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
+addWordButton.addClass("bottone");
 }
 
 function draw() {

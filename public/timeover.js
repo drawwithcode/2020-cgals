@@ -41,21 +41,19 @@ function draw() {
       window.open("index.html", "_self")
       }
 
+      push()
+      textFont("Nanum Myeongjo");
+      textSize(29.5);
+      fill("#6B00FF");
+      textAlign(CENTER);
+      text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2.3);
+      pop()
 
     // push()
     //   textAlign(CENTER);
     //   textSize(20);
     //   text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2);
     // pop()
-
-    push()
-    textFont("Nanum Myeongjo");
-    textSize(29.5);
-    fill("#6B00FF");
-    textAlign(CENTER);
-    text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2.3);
-    center();
-    pop()
 
 }
 

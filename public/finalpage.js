@@ -21,8 +21,6 @@ ref.once("value", gotData, errData);
 let rx = width/2;
 let ry = height/1.8;
 
-
-let home = text("HOME",tx,ty);
 push()
 textFont("Nanum Myeongjo");
 textSize(35);
@@ -36,6 +34,16 @@ strokeWeight(0.5);
 rectMode(CENTER);
 rect(width/2, height/2 - 0.5, windowWidth + 5, 90);
 pop()
+
+let returnButton = select("#returnButton");
+returnButton.mousePressed(returnHome);
+returnButton.position(windowWidth / 2 - 301, windowHeight / 1.1);
+returnButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
+returnButton.addClass("bottone");
+}
+
+function returnHome() {
+  window.open("index.html", "_self")
 }
 
 function gotData(data) {
@@ -81,23 +89,6 @@ strokeWeight(0.5);
 rectMode(CENTER);
 
 
-
-if (overHome(tx, ty) && mouseIsPressed) {
-window.open("index.html", "_self")
-}
-
-
-}
-
-
-
-
-function overHome(x, y) {
-	if (mouseX > x && mouseX < + x+50 && mouseY > y/1.5 && mouseY < y) {
-	  return true;
-	} else {
-	  return false;
-	}
 }
 
 function windowResized() {

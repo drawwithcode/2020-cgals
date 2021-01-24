@@ -17,7 +17,7 @@ let currentPath;
 function startTimer(duration, display) {
     var timer = duration, seconds;
     setInterval(function () {
-        seconds = parseInt(timer % 60, 10);
+        seconds = parseInt(timer, 10);
         seconds = seconds < 10 ? "0" + seconds : seconds;
         display.textContent = seconds;
         if (--timer < 0) {
@@ -39,11 +39,11 @@ function preload(){
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
 push()
-let canvas = createCanvas(500, 500);
+let canvas = createCanvas(600, 380);
 canvas.mousePressed(startPath);
 //canvas.parent("canvascontainer");
 canvas.mouseReleased(endPath);
-canvas.position(windowWidth/2 - 250, windowHeight/2 - 250);
+canvas.position(windowWidth/2 - 300, windowHeight/2 - 200);
 canvas.background("white");
 //canvas.rect(windowWidth/2, windowHeight/2, 500, 500);
 //position(ABSOLUTE);
@@ -58,10 +58,10 @@ ref.on("value", gotData, errData);
 
   let saveButton = select("#saveButton");
   saveButton.mousePressed(saveDrawing);
-  saveButton.position(windowWidth / 2 - 300, windowHeight / 2 + 300);
+  saveButton.position(windowWidth / 2 - 301, windowHeight / 1.245);
   //saveButton.mouseClicked(saveTheWord);
   saveButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
-
+  saveButton.addClass("bottone");
   // let countDown = select("#demo");
   // countDown.center());
   // countDown.textSize(16);
