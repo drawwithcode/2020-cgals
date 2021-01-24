@@ -13,25 +13,7 @@ let picture;
 let image64;
 let myImage;
 
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-        seconds = parseInt(timer, 10);
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.textContent = seconds;
-        if (--timer < 0) {
-            window.open("timeover.html", "_self")
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    var oneMinute = 60,
-        display = document.querySelector('#time');
-    startTimer(oneMinute, display);
-};
-
-//let timer = 120;
+let timer = 120;
 
 function preload() {
   // put preload code here
@@ -99,18 +81,18 @@ function draw() {
   pop()
 
 
-// push()
-// textAlign(CENTER);
-// textSize(16);
-// fill("#6B00FF");
-// text(timer, windowWidth / 2, windowHeight / 5);
-//
-// if (frameCount % 60 == 0 && timer > 0) {
-//   timer --;
-// } else if (timer == 0) {
-//   window.open("timeover.html", "_self")
-// }
-// pop()
+push()
+textAlign(CENTER);
+textSize(16);
+fill("#6B00FF");
+text(timer, windowWidth / 2, windowHeight / 5);
+
+if (frameCount % 60 == 0 && timer > 0) {
+  timer --;
+} else if (timer == 0) {
+  window.open("timeover.html", "_self")
+}
+pop()
 
 push()
 strokeWeight(0.5);
