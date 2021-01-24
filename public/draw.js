@@ -27,7 +27,7 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-    var oneMinute = 60,
+    var oneMinute = 59,
         display = document.querySelector('#time');
     startTimer(oneMinute, display);
 };

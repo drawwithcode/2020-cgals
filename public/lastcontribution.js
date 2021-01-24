@@ -14,6 +14,7 @@ let lastContributionType;
 let words;
 let keys;
 let k;
+let timer = 60;
 
 let socket = io();
 
@@ -141,16 +142,35 @@ function draw(){
   background("#FFFBE8")
   strokeWeight(0.5);
 
-//push()
-strokeWeight(0.5);
+  push()
+  textAlign(CENTER);
+  textSize(16);
+  fill("#6B00FF");
+  text(timer, windowWidth / 2, windowHeight / 6);
+
+  if (frameCount % 60 == 0 && timer > 0) {
+    timer --;
+  } else if (timer == 0) {
+    window.open("timeover.html", "_self")
+  }
+  pop()
+  push()
+  textSize(15);
+  textAlign(CENTER);
+  text("SECONDS LEFT", windowWidth / 2, windowHeight / 5);
+  pop()
+
+push()
+//strokeWeight(0.5);
 let rx = width/2;
 let ry = height/1.2;
 rectMode(CENTER);
 fill("white");
-stroke("black");
+noStroke();
+//stroke("black");
 let box = rect(width/2, height/2, 600, 300);
-//pop()
-
+pop()
+rectMode(CENTER);
 
 textAlign(CENTER);
 

@@ -14,7 +14,7 @@ let inputText = "Enter your word here";
 let addWordButton;
 let buttonText = "ADD TO THE CHAIN";
 
-let timer = 155;
+let timer = 60;
 
 // let socket = io();
 //
@@ -37,7 +37,7 @@ ref.on("value", gotData, errData);
 textbox = createInput(inputText);
 textbox.position(windowWidth / 2 - 300, windowHeight / 2 - 70);
 textbox.size(573, 60);
-textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
+textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0 + "pt").style("border-radius", 0 + "px").style("outline", "none");
 
 addWordButton = createButton("ADD TO THE CHAIN");
 addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 35);

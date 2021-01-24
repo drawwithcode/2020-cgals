@@ -13,7 +13,7 @@ let picture;
 let image64;
 let myImage;
 
-let timer = 120;
+let timer = 60;
 
 function preload() {
   // put preload code here
@@ -95,11 +95,11 @@ if (frameCount % 60 == 0 && timer > 0) {
 pop()
 
 push()
-strokeWeight(0.5);
+//strokeWeight(0.5);
 let rx = width/2;
 let ry = height/2;
 rectMode(CENTER);
-//noStroke();
+noStroke();
 fill("white");
 let box = rect(width/2, height/2, 600, 300);
 pop()
