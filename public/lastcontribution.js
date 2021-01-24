@@ -50,9 +50,10 @@ console.log(lastItem);
 //finds out if the element is a word or a picture
 // console.log(lastItem.find(findWord));
 lastContributionType = lastItem.find(findWord);
+lastPicture = lastItem.find(findPicture);
 
 console.log(lastContributionType);
-
+console.log(lastPicture);
 
 //shows last word contribution
 if (lastContributionType) {
@@ -61,11 +62,16 @@ showWord();
 }
 else {
   console.log("its not!")
+  showPicture();
 }
 }
 
 function findWord () {
   return word;
+}
+
+function findPicture() {
+  return picture;
 }
 
 function showWord() {
@@ -76,12 +82,29 @@ console.log(textCon);
 // let lastWord = text(textCon, width/2, height/4);
 // pop()
 
+
 push()
-let allWords = createDiv(textCon).addClass('p').style("margin", 0 + "pt").style("font-size", 20 + "pt").style("text-align", "center").style("text-align", "center").style("font-family", "arial");
+let allWords = createDiv(textCon).addClass('p').style("margin", 0 + "pt").style("font-size", 20 + "pt").style("text-align", "center").style("text-align", "center").style("font-family", "Helvetica");
 allWords.center();
 pop()
 
  }
+
+ function showPicture () {
+   let picCon = lastPicture[k].picture;
+   console.log(picCon);
+   // image(picCon, windowWidth/2, windowHeight/2)
+  let fImage = createImg(picCon,
+      () => {
+  fImage.size(AUTO, 250);
+  fImage.style("display", "block")
+  fImage.style("margin", "auto")
+  fImage.style("margin-right", "auto")
+}
+);
+
+ }
+
 
  // function showPicture() {
  //   p = loadImage(picture);
