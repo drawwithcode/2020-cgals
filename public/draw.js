@@ -198,6 +198,15 @@ for (var i = 0; i < keys.lenght; i++) {
 }
 }
 
+let bordo = function(b) {
+  b.setup = function() {
+    b.rect(b.windowWidth/2 - 300, b.windowHeight/2 + 190, 600, 45);
+    b.strokeWeight(1);
+    b.stroke("black");
+    b.noFill();
+  }
+}
+let b = new p5(bordo);
 
 // function overRect(x, y, w, h) {
 // 	if (mouseX > x - w/2 && mouseX < x+w/2 && mouseY > y - h/2 && mouseY < y+h/2) {

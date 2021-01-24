@@ -136,6 +136,7 @@ let ref = database.ref("words/");
 // }
 ref.push(data);
   window.open("finalpage.html", "_self")
+
  }
 
 // function overRect(x, y, w, h) {

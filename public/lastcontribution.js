@@ -97,9 +97,11 @@ pop()
   let fImage = createImg(picCon,
       () => {
   fImage.size(AUTO, 250);
-  fImage.style("display", "block")
-  fImage.style("margin", "auto")
-  fImage.style("margin-right", "auto")
+  fImage.style("display", "block");
+  fImage.style("margin", "auto");
+  fImage.style("margin-right", "auto");
+  fImage.position(windowWidth/2, windowHeight/2);
+  fImage.center();
 }
 );
 
@@ -120,79 +122,83 @@ function draw(){
   background("#FFFBE8")
   strokeWeight(0.5);
 
-  let rx = width/2;
-  let ry = height/2;
+//push()
+strokeWeight(0.5);
+let rx = width/2;
+let ry = height/1.2;
 rectMode(CENTER);
-
-
-//white box
-
 fill("white");
 stroke("black");
-let box = rect(width/2, height/2, 600, 250);
+let box = rect(width/2, height/2, 600, 300);
+//pop()
 
 
 textAlign(CENTER);
 
 //buttons
 push()
-  if (overWord(rx - 203, ry + 200, rw, rh)) {
+  if (overWord(rx - 203, ry, rw, rh)) {
 fill("white");
       	stroke("black")
   	} else {
   	  noFill();
   		stroke("black");
   	}
-let wordbutton = rect(rx - 203, ry + 200, rw, rh);
+let wordbutton = rect(rx - 203, ry, rw, rh);
 
 pop()
 push()
 
-        if (overPicture(rx, ry + 200, rw, rh)) {
+        if (overPicture(rx, ry, rw, rh)) {
       fill("white");
             	stroke("black")
         	} else {
         	  noFill();
         		stroke("black");
         	}
-      let picturebutton = rect(width/2, ry + 200, rw, rh);
+      let picturebutton = rect(width/2, ry, rw, rh);
 pop()
 push()
 
 
-      if (overDrawing(rx + 202.5, ry + 200, rw, rh)) {
+      if (overDrawing(rx + 202.5, ry, rw, rh)) {
     fill("white");
             stroke("black")
         } else {
           noFill();
           stroke("black");
         }
-      let drawingbutton = rect(rx  + 202.5, ry + 200, rw, rh);
+      let drawingbutton = rect(rx  + 202.5, ry, rw, rh);
 pop()
-
-//question
+//question / loading message
+push()
       fill("black");
       noStroke();
-      let question = text("What's the first thing that comes to your mind? Collaborate by adding...",rx - 113, ry + 165);
-
+      textSize(17);
+      textFont("Nanum Myeongjo");
+      fill("#6B00FF");
+      let question = text("What's the first thing that comes to your mind? Collaborate by adding...",rx - 31, windowHeight/1.29);
+      let loadingMessage = text("Wait a few seconds before the last contribution appears",rx - 95, windowHeight/3.85);
+pop()
 
 //buttons text
-
-      let word = text("A WORD",rx - 203,ry+205)
-      let picture = text("A PICTURE",width/2,ry+205)
-      let drawing = text("A DRAWING",rx + 202.5,ry+205)
-      let home = text("HOME",tx+30,ty);
+fill("black");
+noStroke();
+      let word = text("A WORD",rx - 203,ry+5)
+      let picture = text("A PICTURE",width/2,ry+5)
+      let drawing = text("A DRAWING",rx + 202.5,ry+5)
+      let home = text("HOME",48,ty);
 
 //open pages
 
 
-      if (overWord(rx - 203, ry + 200, rw, rh) && mouseIsPressed) {
+      if (overWord(rx - 203, ry, rw, rh) && mouseIsPressed) {
       window.open("addword.html", "_self")
       }
-      else if (overPicture(rx, ry + 200, rw, rh) && mouseIsPressed) {
+      else if (overPicture(rx, ry, rw, rh) && mouseIsPressed) {
       window.open("addimage.html", "_self")
       }
-      else if (overDrawing(rx + 202.5, ry + 200, rw, rh) && mouseIsPressed) {
+      else if (overDrawing(rx + 202.5, ry, rw, rh) && mouseIsPressed) {
       window.open("draw.html", "_self")
       }
       else if (overHome(tx, ty) && mouseIsPressed) {

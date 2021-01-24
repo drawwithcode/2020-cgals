@@ -42,10 +42,19 @@ function draw() {
       }
 
 
+    // push()
+    //   textAlign(CENTER);
+    //   textSize(20);
+    //   text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2);
+    // pop()
+
     push()
-      textAlign(CENTER);
-      textSize(20);
-      text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2);
+    textFont("Nanum Myeongjo");
+    textSize(29.5);
+    fill("#6B00FF");
+    textAlign(CENTER);
+    text("Your time is over :( \n Please return to the homepage", windowWidth / 2, windowHeight / 2.3);
+    center();
     pop()
 
 }

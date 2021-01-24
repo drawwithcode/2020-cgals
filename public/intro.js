@@ -42,8 +42,8 @@ rectMode(CENTER);
       push()
       textAlign(CENTER);
       let ready = text("GET YOUR INVOLOUNTARY MEMORY READY",rx,ry+5)
-      let home = text("HOME",tx,ty);
       pop()
+      let home = text("HOME",tx,ty);
 
       if (overRect(rx, ry, rw, rh) && mouseIsPressed) {
       window.open("instructions.html", "_self")
