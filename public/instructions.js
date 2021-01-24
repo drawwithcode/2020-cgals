@@ -57,7 +57,7 @@ rectMode(CENTER);
       textSize(29.5);
       fill("#6B00FF");
       textAlign(LEFT);
-      let title = text("When you press the following button, you'll \nsee the contribution of the last user who \ncollaborated to Memorypedia. \nYou'll have 1 minute to think of a way for \ncontinuing the chain: by adding a word, \na picture or by drawing. \nOnce you have saved, your contribution will \nbe posted and you'll be able to see the full chain, \nfrom the first piece to the last!", width/3.4, height/4);
+      let title = text("When you press the following button, you'll \nsee the contribution of the last user who \ncollaborated to Memorypedia. \nYou'll have 1 minute to think of a way for \ncontinuing the chain: by adding a word, \na picture or by drawing. \nOnce you have saved, your contribution will \nbe posted and you'll be able to see the full chain, \nfrom the first piece to the last!", width/3.3, height/4);
       pop()
 
 }

@@ -61,7 +61,8 @@ let word = words[k].word;
 
 push()
 if (word !== null) {
-let allWords = createP(word).style("display", "inline").style("margin-right", 15 + "px").style("margin-left", 15 + "px").style("padding-bottom", 15 + "px").style("font-family", "Helvetica").addClass('p');
+//let allWords = createP(word).style("display", "inline").style("margin-right", 15 + "px").style("font-size", 20 + "px").style("margin-left", 15 + "px").style("padding-top", 35 + "px").style("font-family", "Helvetica").addClass('p');
+let allWords = createP(word).style("display", "inline").style("font-size", 40 + "px").style("margin", 12 + "px").style("padding-bottom", 12 + "px").style("font-family", "Helvetica").addClass('p');
 }
 pop()
 
@@ -70,10 +71,11 @@ pop()
   if (picture !== undefined && picture !== null) {
       let allImages = createImg(picture,
         () => {
-      allImages.size(AUTO, 60);
-      allImages.style("margin-left", 15 + "px");
-      allImages.style("margin-up", 50 + "px");
-      allImages.style("margin-bottom", 15 + "px");
+      allImages.size(AUTO, 80);
+      allImages.style("margin-top", 15 + "px");
+      //allImages.style("margin", 15 + "px");
+      //allImages.style("margin-up", 50 + "px");
+      //allImages.style("margin-bottom", 15 + "px");
     }
   );
 }

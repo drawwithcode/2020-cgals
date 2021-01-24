@@ -202,6 +202,6 @@ function overHome(x, y) {
 //     canvas.css("height", $(window).height());
 // }
 
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
