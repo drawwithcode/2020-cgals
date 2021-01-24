@@ -12,21 +12,29 @@ let isDrawing = false;
 
 let currentPath;
 
-let timer = 120;
+//let timer = 120;
+
+function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = seconds;
+        if (--timer < 0) {
+            window.open("timeover.html", "_self")
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var oneMinute = 60,
+        display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+};
 
 function preload(){
   // put preload code here
 }
-
-// let sketch = function(backgroundCanvas) {
-//   backgroundCanvas.setup = function() {
-//   };
-//
-//   backgroundCanvas.draw = function() {
-//   };
-// }
-//
-// let backgroundCanvas = new p5(sketch);
 
 function setup() {
 // canvas = createCanvas(windowWidth,windowHeight);
@@ -53,6 +61,18 @@ ref.on("value", gotData, errData);
   saveButton.position(windowWidth / 2 - 300, windowHeight / 2 + 300);
   //saveButton.mouseClicked(saveTheWord);
   saveButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
+
+  // let countDown = select("#demo");
+  // countDown.center());
+  // countDown.textSize(16);
+  // countDown.fill("#6B00FF");
+  // countDown.text(timer, windowWidth / 2, windowHeight / 3.7);
+  //
+  // // if (frameCount % 60 == 0 && timer > 0) {
+  // //   timer --;
+  // // } else if (timer == 0) {
+  // //   window.open("timeover.html", "_self")
+  // // }
 
 }
 
@@ -159,6 +179,8 @@ function saveDrawing() {
         function dataSent(status) {
           console.log(status);
         }
+
+        window.open("finalpage.html", "_self")
 }
 
 function errData(err) {

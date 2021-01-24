@@ -135,6 +135,7 @@ let ref = database.ref("words/");
 //   word:"dog",
 // }
 ref.push(data);
+  window.open("finalpage.html", "_self")
  }
 
 // function overRect(x, y, w, h) {
