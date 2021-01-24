@@ -40,7 +40,7 @@ textbox.size(573, 60);
 textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
 
 addWordButton = createButton("ADD TO THE CHAIN");
-addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 20);
+addWordButton.position(windowWidth / 2 - 300, windowHeight / 2 + 35);
 addWordButton.mouseClicked(saveTheWord);
 addWordButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
 addWordButton.addClass("bottone");
@@ -51,14 +51,14 @@ function draw() {
   push()
   textSize(15);
   textAlign(CENTER);
-  text("SECONDS LEFT", windowWidth / 2, windowHeight / 3.3);
+  text("SECONDS LEFT", windowWidth / 2, windowHeight / 2.9);
   pop()
 
 push()
 textAlign(CENTER);
 textSize(16);
 fill("#6B00FF");
-text(timer, windowWidth / 2, windowHeight / 3.7);
+text(timer, windowWidth / 2, windowHeight / 3.13);
 
 if (frameCount % 60 == 0 && timer > 0) {
   timer --;
@@ -187,6 +187,21 @@ function overHome(x, y) {
 //   })
 // })
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// $(function(){
+//     resizeCanvas();
+// });
+//
+// $(window).on('resize', function(){
+//     resizeCanvas();
+// });
+//
+// function resizeCanvas()
+// {
+//     var canvas = $('#canvas');
+//     canvas.css("width", $(window).width());
+//     canvas.css("height", $(window).height());
+// }
+
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }

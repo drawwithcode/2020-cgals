@@ -58,7 +58,7 @@ ref.on("value", gotData, errData);
 
   let saveButton = select("#saveButton");
   saveButton.mousePressed(saveDrawing);
-  saveButton.position(windowWidth / 2 - 301, windowHeight / 1.245);
+  saveButton.position(windowWidth / 2 - 301, windowHeight / 1.23);
   //saveButton.mouseClicked(saveTheWord);
   saveButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
   saveButton.addClass("bottone");
@@ -99,7 +99,7 @@ currentPath.push(point);
 
 stroke("black");
 noFill();
-strokeWeight(2);
+strokeWeight(4);
 for (var i = 0; i < drawing.length; i++) {
   let path = drawing[i];
   beginShape();

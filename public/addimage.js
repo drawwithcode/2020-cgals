@@ -13,7 +13,25 @@ let picture;
 let image64;
 let myImage;
 
-let timer = 120;
+function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = seconds;
+        if (--timer < 0) {
+            window.open("timeover.html", "_self")
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var oneMinute = 60,
+        display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+};
+
+//let timer = 120;
 
 function preload() {
   // put preload code here
@@ -26,7 +44,7 @@ canvas =  createCanvas(windowWidth, windowHeight);
   push()
   input = createFileInput(handleFile);
   //input.center();
-  input.position(windowWidth/2 - 300, windowHeight/2 + 190);
+  input.position(windowWidth / 2 - 300, windowHeight / 2 + 195);
   input.addClass("uploadstyle");
   input.style("border-width", 0.5 + "pt").style("border-color", "black");
   //input.style("background-color", "#fffbe8");
@@ -41,14 +59,15 @@ canvas =  createCanvas(windowWidth, windowHeight);
   //add button
   let addImageButton;
   addImageButton = createButton("ADD TO THE CHAIN");
-  addImageButton.position(windowWidth / 2 - 300, windowHeight / 2 + 250);
+  addImageButton.position(windowWidth / 2 + 5, windowHeight / 2 + 194);//+ 250
   addImageButton.mouseClicked(saveImage);
-  addImageButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
+  //addImageButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
+  addImageButton.style("font-size", 9 + "pt").style("padding-top", 11.3 + "pt").style("padding-bottom", 11.3 + "pt").style("padding-right", 68 + "pt").style("padding-left", 68 + "pt").style("boxShadow", "none").style("border-width", 0.3 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");
   addImageButton.addClass("bottone");
 }
 
 //drag and drop
-// function gotFile(file) {
+// function gotFile(file
 // let img = createImg(file.data);
 // img.size(100, 100);
 // image(img, 0, 0, width, height);
@@ -69,37 +88,37 @@ function draw() {
   push()
   textSize(15);
   textAlign(CENTER);
-  text("SECONDS LEFT", windowWidth / 2, windowHeight / 4);
+  text("SECONDS LEFT", windowWidth / 2, windowHeight / 4.4);
   pop()
 
   push()
-  rect(windowWidth/2 - 300, windowHeight/2 + 190, 600, 45);
+  rect(windowWidth/2 - 300, windowHeight / 2 + 194.8, 295, 43);
   strokeWeight(1);
   stroke("black");
   noFill();
   pop()
 
 
-push()
-textAlign(CENTER);
-textSize(16);
-fill("#6B00FF");
-text(timer, windowWidth / 2, windowHeight / 4.4);
-
-if (frameCount % 60 == 0 && timer > 0) {
-  timer --;
-} else if (timer == 0) {
-  window.open("timeover.html", "_self")
-}
-pop()
+// push()
+// textAlign(CENTER);
+// textSize(16);
+// fill("#6B00FF");
+// text(timer, windowWidth / 2, windowHeight / 5);
+//
+// if (frameCount % 60 == 0 && timer > 0) {
+//   timer --;
+// } else if (timer == 0) {
+//   window.open("timeover.html", "_self")
+// }
+// pop()
 
 push()
 strokeWeight(0.5);
 let rx = width/2;
 let ry = height/2;
 rectMode(CENTER);
+//noStroke();
 fill("white");
-stroke("black");
 let box = rect(width/2, height/2, 600, 300);
 pop()
 //display image

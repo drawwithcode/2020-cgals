@@ -239,6 +239,21 @@ function overHome(x, y) {
 	}
 }
 
+// $(function(){
+//     resizeCanvas();
+// });
+//
+// $(window).on('resize', function(){
+//     resizeCanvas();
+// });
+//
+// function resizeCanvas()
+// {
+//     var canvas = $('#canvas');
+//     canvas.css("width", $(window).width());
+//     canvas.css("height", $(window).height());
+// }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
