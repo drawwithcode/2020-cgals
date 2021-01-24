@@ -60,12 +60,14 @@ let picture = words[k].picture;
 let word = words[k].word;
 
 push()
+if (word !== null) {
 let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").style("font-family", "Helvetica").addClass('p');
+}
 pop()
 
 
   push()
-  if (picture !== undefined) {
+  if (picture !== undefined && picture !== null) {
       let allImages = createImg(picture,
         () => {
       allImages.size(AUTO, 60);

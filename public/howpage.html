@@ -6,11 +6,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
-    @font-face {
-     font-family: CliftonTrial-Italic;
-     src: url("assets/CliftonTrial-Italic.otf");
-     font-weight: normal;
-   }
+    p {
+          font-size:14px;
+          color:"black";
+          font-family: "Helvetica";
+          margin-left: 1.5em;
+          margin-bottom: 2em;
+        }
+        .details {
+            font-size:16px;
+          color: #6B00FF;
+          font-family: "Nanum Myeongjo";
+        }
+        .details2 {
+            font-size:16px;
+          font-family: "Nanum Myeongjo";
+        }
+        .titles {
+      margin-bottom: 0.1em;
+        }
+
     body {padding: 0; margin: 0;}
 /* p {
 font-size: 5000;
@@ -50,6 +65,22 @@ src: url("");
 </script>
     <script src="howpage.js"></script>
   </head>
-  <body>
-  </body>
+  <body bgcolor="#fffbe8">
+    <div id="sketch-holder">
+      <!-- Our sketch will go here! -->
+    </div>
+    <p>
+    When you start, you'll see the contribution of the last user who collaborated to <span class="details">Memorypedia</span>. <br>It could be a word, a picture or a drawing.
+  </p>
+  <p>
+    You'll have <span class="details">1 minute </span>  to think of a way for continuing the chain by adding using one of these media. <br>By selecting the way you want to collaborate, you'll land in the page you've chosen: </p>
+    <p>
+      <span class="details2">(1) </span> For uploading a picture.<br>
+    <span class="details2">(2) </span> For inserting a word. <br> <span class="details2">(3) </span> To draw your sketch in real time.
+</p>
+
+<p>
+By clicking "add to the chain", your contribution will be saved in the database. <br>Then you'll be redirected to the final page, where you'll be able to see the full chain, from the first <br>piece to the last.
+</p>
+</body>
 </html>

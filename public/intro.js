@@ -57,7 +57,7 @@ rectMode(CENTER);
       textSize(29.5);
       fill("#6B00FF");
       textAlign(LEFT);
-      let title = text("Words and images can evoke memories, \n creating worlds and links that go beyond their \n literal meaning. \n By collaborating to this experience you'll get to \n see how a small part of your own \n 'encyclopedia' can generate a narrative chain \n together with other users' contribution.", width/3.35, height/4);
+      let title = text("Words and images can evoke memories, \ncreating worlds and links that go beyond \ntheir literal meaning. \nBy collaborating to this experience you'll get \nto see how a small part of your own \n'encyclopedia' can generate a narrative chain \ntogether with other users' contribution.", width/3.4, height/4);
       pop()
 
 }

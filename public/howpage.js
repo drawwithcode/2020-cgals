@@ -1,4 +1,4 @@
-let tx = 30;
+let tx = 25;
 let ty = 40;
 
 function preload(){
@@ -6,13 +6,13 @@ function preload(){
 }
 
 function setup() {
-createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(windowWidth, 80);
+  canvas.parent('sketch-holder');
 
 }
 
 function draw(){
   background("#FFFBE8")
-  text("how to collaborate", width/2, height/2);
   let home = text("HOME",tx,ty);
 
   if (overHome(tx, ty) && mouseIsPressed) {
