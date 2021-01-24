@@ -46,7 +46,7 @@ function draw() {
       textSize(29.5);
       fill("#6B00FF");
       textAlign(CENTER);
-      text("Your time is over :( \nPlease return to the homepage", windowWidth / 2, windowHeight / 2.3);
+      text("Looks like someone is already adding \ntheir contribution to Memorypedia... \nPlease return to the homepage \nand retry later!", windowWidth / 2, windowHeight / 2.3);
       pop()
 
     // push()

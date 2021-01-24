@@ -15,6 +15,25 @@ let words;
 let keys;
 let k;
 
+let socket = io();
+
+socket.on("connect", newConnection);
+socket.on("welcomeNewUser", showWelcome);
+socket.on('redirect', redi);
+
+
+function newConnection() {
+  console.log("your id:", socket.id);
+}
+
+function showWelcome(){
+  console.log("new connection from");
+}
+
+function redi(destination) {
+ window.location.href = destination;
+}
+
 function preload(){
 }
 
@@ -238,21 +257,6 @@ function overHome(x, y) {
 	  return false;
 	}
 }
-
-// $(function(){
-//     resizeCanvas();
-// });
-//
-// $(window).on('resize', function(){
-//     resizeCanvas();
-// });
-//
-// function resizeCanvas()
-// {
-//     var canvas = $('#canvas');
-//     canvas.css("width", $(window).width());
-//     canvas.css("height", $(window).height());
-// }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

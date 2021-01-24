@@ -4,32 +4,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
-    p {
-          font-size:40px;
-          color:"black";
-          font-family: "Helvetica";
-          margin: 15px;
-          padding-bottom: 15px;
-          display: inline;
-        }
-      body {padding: 0; margin: 0; }
-      {
-          display: inline;
-          p:nth-child(even) {
-                      background-color: Lightgreen;
-                  }
-      }
-      .bottone{background: #fffbe8;}
-      .bottone:hover{background: #ffffff;}
-    </style>
+    @font-face {
+     font-family: CliftonTrial-Italic;
+     src: url("assets/CliftonTrial-Italic.otf");
+     font-weight: normal;
+   }
+    body {padding: 0; margin: 0;}
+/* p {
+font-size: 5000;
+font-style: oblique;
+font-family: CliftonTrial-Italic
+src: url("");
+  }
 
+  .big {
+  font-size: 300%;
+  } */
+
+
+}
+  </style>
     <script src="p5.min.js"></script>
     <script src="p5.sound.min.js"></script>
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -48,10 +48,8 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
-
-    <script src="finalpage.js" defer></script>
+    <script src="busy.js"></script>
   </head>
   <body>
-      <button id = "returnButton">RETURN TO THE HOMEPAGE</button>
   </body>
 </html>

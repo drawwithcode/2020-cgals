@@ -4,133 +4,100 @@ let rw = 600;
 let rh = 45;
 
 let tx = 30;
-let ty1 = 40;
-let ty2 = 60;
+let ty = 40;
 
-let socket = io();
-//
-socket.on("connect", newConnection);
-socket.on("welcomeNewUser", showWelcome);
-
-
-function newConnection() {
-  console.log("your id:", socket.id);
-}
-
-function showWelcome(data){
-  console.log("new connection from", data)
-  push()
-    fill(data.color)
-    textAlign(CENTER)
-    translate(data.coordinates[0]*width,data.coordinates[1]*height)
-    text("Hello "+data.name, 0,0)
-  pop()
-}
-
-function preload(){
-  // put preload code here
-quote = loadImage("./assets/quote.png");
-}
+let database;
+let textbox;
 
 function setup() {
-createCanvas(windowWidth, windowHeight);
+createCanvas(windowWidth,90);
+background("#fffbe8");
+
+database = firebase.database();
+// let ref = database.ref("pictures");
+let ref = database.ref("words");
+ref.once("value", gotData, errData);
+
+let rx = width/2;
+let ry = height/1.8;
+
+push()
+textFont("Nanum Myeongjo");
+textSize(35);
+fill("#6B00FF");
+textAlign(CENTER);
+let title = text("Memorypedia",rx,53);
+pop()
+push()
+noFill();
+strokeWeight(0.5);
+rectMode(CENTER);
+rect(width/2, height/2 - 0.5, windowWidth + 5, 90);
+pop()
+
+let returnButton = select("#returnButton");
+returnButton.mousePressed(returnHome);
+returnButton.position(windowWidth / 2 - 301, windowHeight / 1.1);
+returnButton.style("font-size", 9 + "pt").style("padding-top", 10.8 + "pt").style("padding-bottom", 10.8 + "pt").style("padding-right", 183 + "pt").style("padding-left", 183 + "pt").style("boxShadow", "none").style("border-width", 0.5 + "pt").style("border-color", "black").style("border-radius", 0 + "px").style("outline", "none");    //.style("border", 2 + "px")
+returnButton.addClass("bottone");
+}
+
+function returnHome() {
+  window.open("index.html", "_self")
+}
+
+function gotData(data) {
+// console.log(data.val());
+
+let words = data.val();
+
+let keys = Object.keys(words);
+
+for (var i = 0; i < keys.length; i++) {
+let k = keys[i];
+
+let picture = words[k].picture;
+let word = words[k].word;
+
+push()
+if (word !== null) {
+//let allWords = createP(word).style("display", "inline").style("margin-right", 15 + "px").style("font-size", 20 + "px").style("margin-left", 15 + "px").style("padding-top", 35 + "px").style("font-family", "Helvetica").addClass('p');
+let allWords = createP(word).style("display", "inline").style("font-size", 40 + "px").style("margin", 12 + "px").style("padding-bottom", 12 + "px").style("font-family", "Helvetica").addClass('p');
+}
+pop()
 
 
+  push()
+  if (picture !== undefined && picture !== null) {
+      let allImages = createImg(picture,
+        () => {
+      allImages.size(AUTO, 80);
+      allImages.style("margin-top", 15 + "px");
+      //allImages.style("margin", 15 + "px");
+      //allImages.style("margin-up", 50 + "px");
+      //allImages.style("margin-bottom", 15 + "px");
+    }
+  );
+}
+pop()
+
+
+}
+}
+
+
+function errData(err) {
+  console.log("Error");
+  console.log(err);
 }
 
 function draw() {
-  let rx = width/2;
-  let ry = height/1.2;
+strokeWeight(0.5);
 rectMode(CENTER);
-  background("#FFFBE8")
-  strokeWeight(0.5);
 
-  push()
-  textFont("Nanum Myeongjo");
-  textSize(90);
-  fill("#6B00FF");
-  textAlign(CENTER);
-  let title = text("Memorypedia", width/2, height/2.5);
-  pop()
-
-
-
-let prousti = image(quote, width/2, height/2, 510, 59);
-imageMode(CENTER);
-
-  if (overRect(rx, ry, rw, rh)) {
-
-  		fill("white");
-      stroke("black");
-  	} else {
-  	  noFill();
-  		stroke("black");
-
-  	}
-
-    	let startbutton = rect(rx, ry, rw, rh);
-
-
-    fill("black");
-    noStroke();
-    let about = text("ABOUT",tx,ty1)
-    let how = text("HOW TO COLLABORATE",tx,ty2)
-    push()
-    textAlign(CENTER);
-    let start = text("ENTER & COLLABORATE",rx,ry+5)
-    pop()
-
-
-    if (overRect(rx, ry, rw, rh) && mouseIsPressed) {
-    window.open("intro.html", "_self")
-    }
-    else if (overAbout(tx, ty1) && mouseIsPressed) {
-    window.open("aboutpage.html", "_self")
-    }
-    else if (overHow(tx, ty2) && mouseIsPressed) {
-    window.open("howpage.html", "_self")
-    }
 
 }
 
-function overRect(x, y, w, h) {
-	if (mouseX > x - w/2 && mouseX < x+w/2 && mouseY > y - h/2 && mouseY < y+h/2) {
-	  return true;
-	} else {
-	  return false;
-	}
-}
-
-function overAbout(x, y) {
-	if (mouseX > x && mouseX < + x+40 && mouseY > y/1.5 && mouseY < y) {
-	  return true;
-	} else {
-	  return false;
-	}
-}
-
-function overHow(x, y) {
-	if (mouseX > x && mouseX < x+140 && mouseY > y/1.2 && mouseY < y) {
-	  return true;
-	} else {
-	  return false;
-	}
-}
-
-
-// function goToAbout() {
-// if (overAbout(rx, ry, rw, rh) && mouseIsPressed) {
-// window.open("aboutpage.html", "_self")
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
 // }
-// }
-//
-// function goToHowToEnter() {
-// if (overHow(rx, ry, rw, rh) && mouseIsPressed) {
-// window.open("aboutpage.html", "_self")
-// }
-// }
-
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
