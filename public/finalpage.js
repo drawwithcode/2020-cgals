@@ -61,7 +61,7 @@ let word = words[k].word;
 
 push()
 if (word !== null) {
-let allWords = createP(word).style("display", "inline").style("margin-right", 10 + "px").style("font-family", "Helvetica").addClass('p');
+let allWords = createP(word).style("display", "inline").style("margin-right", 15 + "px").style("margin-left", 15 + "px").style("padding-bottom", 15 + "px").style("font-family", "Helvetica").addClass('p');
 }
 pop()
 
@@ -71,6 +71,9 @@ pop()
       let allImages = createImg(picture,
         () => {
       allImages.size(AUTO, 60);
+      allImages.style("margin-left", 15 + "px");
+      allImages.style("margin-up", 50 + "px");
+      allImages.style("margin-bottom", 15 + "px");
     }
   );
 }
@@ -93,6 +96,6 @@ rectMode(CENTER);
 
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
