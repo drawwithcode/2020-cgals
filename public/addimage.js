@@ -161,9 +161,15 @@ function saveImage() {
 
 
   ref.push(data);
-
- window.open("finalpage.html", "_self")
+  setTimeout(continueExecution, 5000)
 }
+
+function continueExecution()
+ {
+
+window.open("finalpage.html", "_self")
+
+ }
 
 function overRect(x, y, w, h) {
   if (mouseX > x - w / 2 && mouseX < x + w / 2 && mouseY > y - h / 2 && mouseY < y + h / 2) {
