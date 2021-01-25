@@ -108,69 +108,10 @@ for (var j = 0; j < path.length; j++) {
 }
 endShape();
 }
-// strokeWeight(0.5);
-// rectMode(CENTER);
-//
-// let rx = width/2;
-// let ry = height/1.8;
-//
-//
-//
-// let textbox;
-// let inputText = "Enter your word here";
-// let addWordButton;
-// let buttonText = "ADD TO THE CHAIN";
-//
-//
-//
-// push()
-//
-// if (overRect(rx, ry, rw, rh)) {
-//
-//     fill("white");
-//     stroke("black");
-//   } else {
-//     noFill();
-//     stroke("black");
-//
-//   }
-//
-//   rect(rx, height/2.5, rw, rh)
-//   pop()
-//
-//
-// push()
-// textbox = createInput(inputText);
-// textbox.position(rx/2.33, height/2.75);
-// textbox.size(568, rh-3);
-// textbox.style("font-size", 10 + "pt").style("padding-left", 20 + "pt").style("boxShadow", "none").style("border", 0 + "px");
-// pop()
-//
-//
-// //add border
-// addWordbutton = rect(rx, ry, rw, rh);
-// textAlign(CENTER);
-// let addToChain = text("ADD TO THE CHAIN",rx,ry+5)
-//
-// // myText = textbox.value();
-//
-//
-// textAlign(CENTER)
-// let home = text("HOME",tx,ty);
-//
-// if (overHome(tx, ty) && mouseIsPressed) {
-// window.open("index.html", "_self")
-// }
-//
-// addWordButton.mouseClicked();
+
 }
 
-// function rectangle() {
-//   let r = select("#rettangolo");
-//   r.style("width", 600 + "px").style("height", 380 + "px").style("border", 0.5 + "px", "solid", "#000000");    //.style("border", 2 + "px")
-//   r.center();
-//   r.position(windowWidth/2, windowHeight/2);
-// }
+
 
 function saveDrawing() {
   var ref = database.ref("words");

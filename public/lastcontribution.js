@@ -19,7 +19,6 @@ let timer = 60;
 let socket = io();
 
 socket.on("connect", newConnection);
-socket.on("welcomeNewUser", showWelcome);
 socket.on('redirect', redi);
 
 
@@ -27,9 +26,6 @@ function newConnection() {
   console.log("your id:", socket.id);
 }
 
-function showWelcome(){
-  console.log("new connection from");
-}
 
 function redi(destination) {
  window.location.href = destination;
@@ -97,10 +93,7 @@ function findPicture() {
 function showWord() {
 let textCon = lastContributionType[k].word;
 console.log(textCon);
-// push()
-// textSize(60);
-// let lastWord = text(textCon, width/2, height/4);
-// pop()
+
 
 
 push()
@@ -127,10 +120,6 @@ pop()
 
  }
 
-
- // function showPicture() {
- //   p = loadImage(picture);
- // }
 
 function errData(err) {
   console.log("Error");

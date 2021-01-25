@@ -6,7 +6,6 @@ let rh = 45;
 let tx = 30;
 let ty = 40;
 
-//let input;
 let img;
 let database;
 let picture;
@@ -118,46 +117,6 @@ pop()
   // let allImages = createImg(drawing, () => {
   //     allImages.size(AUTO, 60);
   //   }
-  // strokeWeight(0.5);
-  // rectMode(CENTER);
-  //
-  // let rx = width/2;
-  // let ry = height/1.8;
-
-  // push()
-  //
-  // if (overRect(rx, ry, rw, rh)) {
-  //
-  //     fill("white");
-  //     stroke("black");
-  //   } else {
-  //     noFill();
-  //     stroke("black");
-  //
-  //   }
-  //
-  //   rect(rx, height/2.5, rw, rh)
-  //   pop()
-  //
-  //
-  //
-  //
-  // //add border
-  // addWordbutton = rect(rx, ry, rw, rh);
-  // textAlign(CENTER);
-  // let addToChain = text("ADD TO THE CHAIN",rx,ry+5)
-  //
-  // // myText = textbox.value();
-  //
-  //
-  // textAlign(CENTER)
-  // let home = text("HOME",tx,ty);
-  //
-  // if (overHome(tx, ty) && mouseIsPressed) {
-  // window.open("index.html", "_self")
-  // }
-  //
-  // addWordButton.mouseClicked();
 
 
 }
@@ -197,15 +156,13 @@ function saveImage() {
   let data = {
     picture: image64
   }
-  // console.log(data);
+  console.log(data);
   let ref = database.ref("words");
 
-  // let data = {
-  //   word:"dog",
-  // }
+
   ref.push(data);
 
-  window.open("finalpage.html", "_self")
+ window.open("finalpage.html", "_self")
 }
 
 function overRect(x, y, w, h) {
