@@ -12,6 +12,22 @@ let isDrawing = false;
 
 let currentPath;
 
+let socket = io();
+
+socket.on("connect", newConnection);
+socket.on('redirect', redi);
+
+
+function newConnection() {
+  console.log("your id:", socket.id);
+}
+
+
+function redi(destination) {
+ window.location.href = destination;
+}
+
+
 //let timer = 120;
 
 function startTimer(duration, display) {

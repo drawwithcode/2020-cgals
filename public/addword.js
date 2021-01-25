@@ -16,6 +16,22 @@ let buttonText = "ADD TO THE CHAIN";
 
 let timer = 60;
 
+let socket = io();
+
+socket.on("connect", newConnection);
+socket.on('redirect', redi);
+
+
+function newConnection() {
+  console.log("your id:", socket.id);
+}
+
+
+function redi(destination) {
+ window.location.href = destination;
+}
+
+
 // let socket = io();
 //
 // socket.on("connect", newConnection);

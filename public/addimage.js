@@ -14,6 +14,22 @@ let myImage;
 
 let timer = 60;
 
+let socket = io();
+
+socket.on("connect", newConnection);
+socket.on('redirect', redi);
+
+
+function newConnection() {
+  console.log("your id:", socket.id);
+}
+
+
+function redi(destination) {
+ window.location.href = destination;
+}
+
+
 function preload() {
   // put preload code here
 }
