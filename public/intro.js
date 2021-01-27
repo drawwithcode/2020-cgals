@@ -41,7 +41,7 @@ rectMode(CENTER);
       noStroke();
       push()
       textAlign(CENTER);
-      let ready = text("GET YOUR INVOLOUNTARY MEMORY READY",rx,ry+5)
+      let ready = text("GET YOUR INVOLUNTARY MEMORY READY",rx,ry+5)
       pop()
       let home = text("HOME",tx,ty);
 
